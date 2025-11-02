@@ -23,7 +23,7 @@ function Board({ xIsNext, squares, onPlay }) {
   //  const [xIsNext, setXIsNext] = useState(true);
 
   function handleClick(i) {
-    if (calculatewinner(squares) || (squares[i])) {
+    if (calculateWinner(squares) || (squares[i])) {
       return;
     }
     const nextSquares = squares.slice();
@@ -35,7 +35,7 @@ function Board({ xIsNext, squares, onPlay }) {
     onplay(nextSquares);
   }
 
-  const winner = calculatewinner(squares);
+  const winner = calculateWinner(squares);
   let status;
   if (winner) {
     status = "Winner: " + winner;
@@ -73,8 +73,8 @@ export default function Game() {
   const currentSquares = [history.length - 1];
 
   function handlePlay(nextSquares) {
-
-    // TODO
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
 
   }
 
@@ -91,7 +91,7 @@ export default function Game() {
   );
 }
 
-function calculatewinner(squares) {
+function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
