@@ -90,11 +90,11 @@ export default function Game() {
       description = 'Go to game Start';
     }
     return (
-      <Li>
+      <li>
         <button onClick={() => jumpTo(move)}>
           {description}
         </button>
-      </Li>
+      </li>
     );
   });
 
@@ -133,7 +133,7 @@ function calculateWinner(squares) {
 
 
 
-// Picking a key WIP --------------------
+// Picking a key WIP ----------
 
 
 // end code 
