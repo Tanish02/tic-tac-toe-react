@@ -24,7 +24,7 @@ export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
 
   function handleClick(i) {
-    if (squares[i]) {
+    if (squares[i] || calcualtewinner(squares)) {
       return;
     }
     const nextSquares = squares.slice();
