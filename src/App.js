@@ -86,6 +86,7 @@ export default function Game() {
   }
 
   function jumpTo(nextMove) {
+    setHistory(history.slice(0, nextMove + 1));
     setCurrentMove(nextMove);
     // setXIsNext((nextMove % 2) === 0);
   }
@@ -95,8 +96,14 @@ export default function Game() {
     if (move > 0) {
       description = 'Go to Move #' + move;
     } else {
-      description = 'Go to game Start';
+      description = 'Reset Game';
     }
+    // Hide the Button when already on the start
+    if (move === 0 && currentMove === 0) {
+      return null;
+    }
+
+
     return (
       <li key={move} >
         <button onClick={() => jumpTo(move)}>
